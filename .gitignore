@@ -1,0 +1,3 @@
+# Ignore all installed node modules, users should install dependencies on their machine using:
+# 'npm install' OR 'npm install --save-exact' to get the exact versions
+node_modules
