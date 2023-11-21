@@ -11,6 +11,7 @@ A small node project to keep track of tabs i.e. who owes whom and how much. This
 
 ⚒️ Node package dependencies:
 - express.js
+- ejs
 - nodemon
 
 Author: Muhammad Naufal Al Ghifari
