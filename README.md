@@ -16,14 +16,35 @@ A small node project to keep track of tabs i.e. who owes whom and how much.
 6. You are now using minmalistTabTracker!
 
 ## ⚒️ Node package dependencies:
-- express.js
-- ejs
-- nodemon
+- [express.js](https://expressjs.com/)
+- [ejs](https://ejs.co/)
+- [nodemon](https://nodemon.io/)
 - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
 
 ## 💽 Database: SQLite 
 With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a portable (serverless) relational database. This makes it easier to showcase the project as no additional setup/connection is required. While still allowing the ability to show how the database is setup and how queries are handled. 
 - SQLite database location: src/db/mySQLiteDB.db
 - To see database setup, see [src/db/db_init.js](src/db/db_init.js)
+
+### Tables
+To help visualise the database structure, below are table creation queries:
+```
+CREATE TABLE IF NOT EXISTS users (
+    user_id INTEGER PRIMARY KEY,
+    name TEXT);
+
+CREATE TABLE IF NOT EXISTS tabs (
+    tab_id INTEGER PRIMARY KEY,
+    amount INTEGER,
+    description TEXT);
+
+CREATE TABLE IF NOT EXISTS usertabs (
+    usertabs_id INTEGER PRIMARY KEY,
+    userID INTEGER,
+    tabID INTEGER,
+    tabStatus BOOLEAN DEFAULT 0,
+    FOREIGN KEY (userID) REFERENCES users(user_id),
+    FOREIGN KEY (tabID) REFERENCES tabss(tab_id));
+```
 
 Author: Muhammad Naufal Al Ghifari
