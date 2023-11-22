@@ -19,6 +19,6 @@ A small node project to keep track of tabs i.e. who owes whom and how much. This
 💽 Database: SQLite
 With SQLite, it is possible to setup a portable (serverless) relational database. This makes it easier to showcase the project as no setup/connection required. While still allowing the ability to show how the database is setup and how queries are handled. 
 - SQLite database location: src/db/mySQLiteDB.db
-- To see database setup, see src/db/db_init.js
+- To see database setup, see [src/db/db_init.js](src/db/db_init.js)
 
 Author: Muhammad Naufal Al Ghifari
