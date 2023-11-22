@@ -26,7 +26,7 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 - SQLite database location: src/db/mySQLiteDB.db
 - To see database setup, see [src/db/db_init.js](src/db/db_init.js)
 
-### Database setup
+### Tables
 To help visualise the database structure, below are table creation queries:
 ```
 CREATE TABLE IF NOT EXISTS users (
