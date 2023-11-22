@@ -1,6 +1,7 @@
 # minimalistTabTracker
 > [!NOTE]
-> This project is still in progress, some features may be missing unstable.
+> This project is ***still in progress***, some features may be missing or unstable.
+> Thank you for your understanding.
 
 A small node project to keep track of tabs i.e. who owes whom and how much.  
 **This project aims to:**
