@@ -27,15 +27,16 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 - To see database setup, see [src/db/db_init.js](src/db/db_init.js)
 
 ### Database setup
+To help visualise the database structure, below are table creation queries:
 ```
 CREATE TABLE IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY,
-    name TEXT;
+    name TEXT);
 
 CREATE TABLE IF NOT EXISTS tabs (
     tab_id INTEGER PRIMARY KEY,
     amount INTEGER,
-    description TEXT;
+    description TEXT);
 
 CREATE TABLE IF NOT EXISTS usertabs (
     usertabs_id INTEGER PRIMARY KEY,
@@ -43,7 +44,7 @@ CREATE TABLE IF NOT EXISTS usertabs (
     tabID INTEGER,
     tabStatus BOOLEAN DEFAULT 0,
     FOREIGN KEY (userID) REFERENCES users(user_id),
-    FOREIGN KEY (tabID) REFERENCES tabss(tab_id);
+    FOREIGN KEY (tabID) REFERENCES tabss(tab_id));
 ```
 
 Author: Muhammad Naufal Al Ghifari
