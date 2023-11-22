@@ -18,14 +18,36 @@ const db = new sqlite3.Database('./src/db/mySQLiteDB.db', (err) => {
     }
 });
 
-// Query all users from the users table
-db.all('SELECT * FROM users', (err, rows) => {
+const query_display_all = `
+    SELECT
+        Users.name AS Debtor,
+        Tabs.description AS TabDescription,
+        Tabs.amount AS TabAmount
+    FROM
+        Users
+    CROSS JOIN
+        Tabs
+    LEFT JOIN
+        UserTabs ON Users.user_id = UserTabs.UserID AND Tabs.tab_id = UserTabs.TabID;
+`;
+
+// Execute the query
+db.all(query_display_all, [], (err, rows) => {
     if (err) {
-      console.error('Error querying users:', err.message);
-    } else {
-      console.log('All users:', rows);
+      console.error('Error executing query:', err.message);
+      return;
     }
+  
+    // Display the results
+    console.log('Results:');
+    rows.forEach((row) => {
+      console.log(`${row.Debtor} owes ${row.TabAmount} for ${row.TabDescription}`);
+    });
+  
+    // Close the database connection
+    db.close();
 });
+
 
 // homepage route
 app.get('/', (req, res) => res.render('index.ejs')); // serve home page at '/' endpoint

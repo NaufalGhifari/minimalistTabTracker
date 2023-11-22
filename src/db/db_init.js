@@ -2,7 +2,7 @@
     db_init.js
     ================================================================= 
     This is an SQLite database initialisation file.
-    Unless you need to initialise a database, please disregard. 
+    Unless you need to modify or re-initialise the database, please disregard. 
     Otherwise, make sure you initialise the new database correctly 
     to avoid overwriting an existing one.
     =================================================================
@@ -20,25 +20,56 @@ if(!fs.existsSync(dbFilePath)){
     // create and save new poratble db
     const db = new sqlite3.Database(dbFilePath);
 
-    // create a table
+    // initialise tables
     db.serialize(() => {
         db.run(`
         CREATE TABLE IF NOT EXISTS users (
-            id INTEGER AUTO INCREMENT PRIMARY KEY,
+            user_id INTEGER PRIMARY KEY,
             name TEXT
+        )`),
+        db.run(`
+        CREATE TABLE IF NOT EXISTS tabs (
+            tab_id INTEGER PRIMARY KEY,
+            amount INTEGER,
+            description TEXT
+        )`),
+        db.run(`
+        CREATE TABLE IF NOT EXISTS usertabs (
+            usertabs_id INTEGER PRIMARY KEY,
+            userID INTEGER,
+            tabID INTEGER,
+            FOREIGN KEY (userID) REFERENCES users(user_id),
+            FOREIGN KEY (tabID) REFERENCES tabss(tab_id)
         )`)
+
     });
 
-    // insert some names
+    // insert some data
     db.serialize(() => {
-        const stmt = db.prepare('INSERT INTO users (name) VALUES (?)');
-        stmt.run('John');
-        stmt.run('Andrew');
-        stmt.run('Dimitry');
-        stmt.run('Yuri');
-        stmt.run('Carl');
-        stmt.finalize();
+        // user data
+        const insert_user = db.prepare('INSERT INTO users (name) VALUES (?)');
+        insert_user.run('John');
+        insert_user.run('Andrew');
+        insert_user.run('Dimitry');
+        insert_user.run('Yuri');
+        insert_user.run('Carl');
+        insert_user.finalize();
+
+        // tabs data
+        const insert_tab = db.prepare('INSERT INTO tabs (amount, description) VALUES (?, ?)');
+        insert_tab.run('200', 'coffee');
+        insert_tab.run('1000', 'breakfast');
+        insert_tab.run('350', 'snacks');
+        insert_tab.finalize();
+
+        // usertabs data
+        const insert_usertabs = db.prepare('INSERT INTO usertabs (userID, tabID) VALUES (?, ?)');
+        insert_usertabs.run('1', '1');
+        insert_usertabs.run('1', '2');
+        insert_usertabs.run('3', '3');
+        insert_usertabs.finalize();
     });
+
 
     // close connection
     db.close((err) => {
