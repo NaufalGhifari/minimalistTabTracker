@@ -22,7 +22,7 @@ function executeQuery(query, callback) {
 }
 
 /*
-    To avoid repetition, write a base query common to all 4 queries. 
+    To avoid repetition, write a base query common to all 3 queries. 
     Then, each specific queries may add their part.
 */
 const query_usertabs_base = `

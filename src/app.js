@@ -46,6 +46,10 @@ app.get('/all', (req, res) =>{
     });
 });
 
+app.get('/newTabForm', (req, res) =>{
+    res.render('../views/newTabForm');
+});
+
 
 app.listen(port, () => console.log(`App is running: http://localhost:${port}`));
 
