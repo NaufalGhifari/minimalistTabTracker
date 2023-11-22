@@ -5,12 +5,12 @@ A small node project to keep track of tabs i.e. who owes whom and how much.
 2. Showcase CRUD database operations from a web application.
 
 ## 💡 To get the app running:
-- Make sure you have Node.js installed
-- Open a terminal in the cloned repo
-- type 'npm init', this will install all dependncies
-- Once done, type 'npm start' this runs the application
-- Either click on the link on the terminal or go to 'http://localhost:4000'
-- You are now using minmalistTabTracker!
+1. Make sure you have [Node.js](https://nodejs.org/en/) installed
+2. Open a terminal in the cloned repo
+3. type 'npm init', this will install all dependncies
+4. Once done, type 'npm start'. This runs the application
+5. Either click on the link in the terminal OR go to 'http://localhost:4000' on your browser
+6. You are now using minmalistTabTracker!
 
 ## ⚒️ Node package dependencies:
 - express.js
