@@ -1,8 +1,8 @@
 # minimalistTabTracker
+A small node project to keep track of tabs like in cafés, bistro, etc.  
 > [!NOTE]
 > This project is ***still in progress***, some features may be missing or unstable.
 
-A small node project to keep track of tabs like in cafés, bistro, etc.  
 **This project aims to:**
 1. Showcase a minimal full-stack capability: front-end, back-end, and database.
 2. Showcase CRUD [database](https://github.com/NaufalGhifari/minimalistTabTracker#-database-sqlite) operations from a web application.
