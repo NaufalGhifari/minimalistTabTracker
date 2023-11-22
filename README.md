@@ -26,21 +26,41 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 - SQLite database location: src/db/mySQLiteDB.db
 - To see database setup, see [src/db/db_init.js](src/db/db_init.js)
 
-### Repetitive query handling
+### Database setup
 ```
-const query_usertabs_base = `
-    SELECT
-    users.name AS Debtor,
-    tabs.description AS TabDescription,
-    tabs.amount AS TabAmount,
-    usertabs.tabStatus as status
-    FROM usertabs
-    INNER JOIN users ON UserTabs.UserID = Users.user_id
-    INNER JOIN tabs ON UserTabs.tabID = Tabs.tab_id
-`;
-const query_display_all = `${query_usertabs_base};`;
-const query_display_paid = `${query_usertabs_base} WHERE status = 1;`;
-const query_display_unpaid = `${query_usertabs_base} WHERE status = 0;`;
+const dbFilePath = './mySQLiteDB.db';
+
+// check if db is not initialised
+if(!fs.existsSync(dbFilePath)){
+    
+    // create and save new poratble db
+    const db = new sqlite3.Database(dbFilePath);
+
+    // initialise tables
+    db.serialize(() => {
+        db.run(`
+        CREATE TABLE IF NOT EXISTS users (
+            user_id INTEGER PRIMARY KEY,
+            name TEXT
+        )`),
+        db.run(`
+        CREATE TABLE IF NOT EXISTS tabs (
+            tab_id INTEGER PRIMARY KEY,
+            amount INTEGER,
+            description TEXT
+        )`),
+        db.run(`
+        CREATE TABLE IF NOT EXISTS usertabs (
+            usertabs_id INTEGER PRIMARY KEY,
+            userID INTEGER,
+            tabID INTEGER,
+            tabStatus BOOLEAN DEFAULT 0,
+            FOREIGN KEY (userID) REFERENCES users(user_id),
+            FOREIGN KEY (tabID) REFERENCES tabss(tab_id)
+        )`)
+
+    });
+}
 ```
 
 Author: Muhammad Naufal Al Ghifari
