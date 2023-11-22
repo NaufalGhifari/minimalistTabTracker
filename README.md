@@ -27,7 +27,7 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 - To see database setup, see [src/db/db_init.js](src/db/db_init.js)
 
 ### Repetitive query handling
-"""
+```
 const query_usertabs_base = `
     SELECT
     users.name AS Debtor,
@@ -41,6 +41,6 @@ const query_usertabs_base = `
 const query_display_all = `${query_usertabs_base};`;
 const query_display_paid = `${query_usertabs_base} WHERE status = 1;`;
 const query_display_unpaid = `${query_usertabs_base} WHERE status = 0;`;
-"""
+```
 
 Author: Muhammad Naufal Al Ghifari
