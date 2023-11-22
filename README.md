@@ -19,7 +19,7 @@ A small node project to keep track of tabs i.e. who owes whom and how much.
 - express.js
 - ejs
 - nodemon
-- sqlite3
+- [sqlite3](https://docs.python.org/3/library/sqlite3.html)
 
 ## 💽 Database: SQLite 
 With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a portable (serverless) relational database. This makes it easier to showcase the project as no additional setup/connection is required. While still allowing the ability to show how the database is setup and how queries are handled. 
