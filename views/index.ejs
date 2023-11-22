@@ -7,7 +7,15 @@
 </head>
 
 <body>
-<h1>Welcome to minimalistTabTracker</h1>
-    
+<h1>## minimalistTabTracker ##</h1>
+<h2>Active tabs: </h2>
+
+<!-- Use values passed from index.ejs 'usertabs' in the template -->
+<ul>
+<% usertabs.forEach(usertab => {%>
+    <li>User: <%= usertab.Debtor %> | Amount: <%= usertab.TabAmount %> | Description: <%= usertab.TabDescription %> | Status: <%= usertab.status %></li>
+<% }); %> 
+</ul>
+
 </body>
 </html>

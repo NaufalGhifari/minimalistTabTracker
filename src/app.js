@@ -18,38 +18,40 @@ const db = new sqlite3.Database('./src/db/mySQLiteDB.db', (err) => {
     }
 });
 
-const query_display_all = `
+const query_usertabs = `
     SELECT
-        Users.name AS Debtor,
-        Tabs.description AS TabDescription,
-        Tabs.amount AS TabAmount
-    FROM
-        Users
-    CROSS JOIN
-        Tabs
-    LEFT JOIN
-        UserTabs ON Users.user_id = UserTabs.UserID AND Tabs.tab_id = UserTabs.TabID;
+    users.name AS Debtor,
+    tabs.description AS TabDescription,
+    tabs.amount AS TabAmount,
+    usertabs.tabStatus as status
+    FROM usertabs
+    INNER JOIN users ON UserTabs.UserID = Users.user_id
+    INNER JOIN tabs ON UserTabs.tabID = Tabs.tab_id
 `;
+const query_display_all = `${query_usertabs};`;
+const query_display_paid = `${query_usertabs} WHERE status = 1;`;
+const query_display_unpaid = `${query_usertabs} WHERE status = 0;`;
 
-// Execute the query
-db.all(query_display_all, [], (err, rows) => {
-    if (err) {
-      console.error('Error executing query:', err.message);
-      return;
-    }
-  
-    // Display the results
-    console.log('Results:');
-    rows.forEach((row) => {
-      console.log(`${row.Debtor} owes ${row.TabAmount} for ${row.TabDescription}`);
+// serve home page at '/' endpoint
+app.get('/', (req, res) =>{
+    
+    db.all(query_display_all, [], (err, rows) => { // Execute the query
+        if (err) {
+            console.error('Error executing query:', err.message);
+            return;
+        }
+
+        // pass the result to the page
+        res.render('../views/index', {usertabs: rows});
+
+        
     });
-  
+    
     // Close the database connection
     db.close();
 });
 
 
-// homepage route
-app.get('/', (req, res) => res.render('index.ejs')); // serve home page at '/' endpoint
 
 app.listen(port, () => console.log(`App is running: http://localhost:${port}`));
+

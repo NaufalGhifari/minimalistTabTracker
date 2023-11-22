@@ -38,6 +38,7 @@ if(!fs.existsSync(dbFilePath)){
             usertabs_id INTEGER PRIMARY KEY,
             userID INTEGER,
             tabID INTEGER,
+            tabStatus BOOLEAN DEFAULT 0,
             FOREIGN KEY (userID) REFERENCES users(user_id),
             FOREIGN KEY (tabID) REFERENCES tabss(tab_id)
         )`)
