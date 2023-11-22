@@ -28,39 +28,22 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 
 ### Database setup
 ```
-const dbFilePath = './mySQLiteDB.db';
+CREATE TABLE IF NOT EXISTS users (
+    user_id INTEGER PRIMARY KEY,
+    name TEXT;
 
-// check if db is not initialised
-if(!fs.existsSync(dbFilePath)){
-    
-    // create and save new poratble db
-    const db = new sqlite3.Database(dbFilePath);
+CREATE TABLE IF NOT EXISTS tabs (
+    tab_id INTEGER PRIMARY KEY,
+    amount INTEGER,
+    description TEXT;
 
-    // initialise tables
-    db.serialize(() => {
-        db.run(`
-        CREATE TABLE IF NOT EXISTS users (
-            user_id INTEGER PRIMARY KEY,
-            name TEXT
-        )`),
-        db.run(`
-        CREATE TABLE IF NOT EXISTS tabs (
-            tab_id INTEGER PRIMARY KEY,
-            amount INTEGER,
-            description TEXT
-        )`),
-        db.run(`
-        CREATE TABLE IF NOT EXISTS usertabs (
-            usertabs_id INTEGER PRIMARY KEY,
-            userID INTEGER,
-            tabID INTEGER,
-            tabStatus BOOLEAN DEFAULT 0,
-            FOREIGN KEY (userID) REFERENCES users(user_id),
-            FOREIGN KEY (tabID) REFERENCES tabss(tab_id)
-        )`)
-
-    });
-}
+CREATE TABLE IF NOT EXISTS usertabs (
+    usertabs_id INTEGER PRIMARY KEY,
+    userID INTEGER,
+    tabID INTEGER,
+    tabStatus BOOLEAN DEFAULT 0,
+    FOREIGN KEY (userID) REFERENCES users(user_id),
+    FOREIGN KEY (tabID) REFERENCES tabss(tab_id);
 ```
 
 Author: Muhammad Naufal Al Ghifari
