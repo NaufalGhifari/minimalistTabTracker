@@ -1,6 +1,6 @@
 # minimalistTabTracker
-> [!NOTE]
->A small node project to keep track of tabs i.e. who owes whom and how much. This project aims to:
+A small node project to keep track of tabs i.e. who owes whom and how much. 
+**This project aims to:**
 1. Showcase a minimal full-stack capability: front-end, back-end, and database.
 2. Showcase CRUD database operations from a web application.
 
