@@ -20,6 +20,7 @@ A small node project to keep track of tabs like in cafés, bistro, etc.
 - [ejs](https://ejs.co/)
 - [nodemon](https://nodemon.io/)
 - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
+- [jest](https://jestjs.io/)
 
 ## 💽 Database: SQLite 
 With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a portable (serverless) relational database. This makes it easier to showcase the project as no additional setup/connection is required. While still allowing the ability to show how the database is setup and how queries are handled. 
