@@ -34,7 +34,7 @@ Rules:
 
 We have a many-to-many relationship and this must be broken down into multiple one to many relationship to abide by the rules of relational database system by making use of a junction table:  
 
-![image](https://github.com/NaufalGhifari/minimalistTabTracker/assets/85378958/d4109f38-d1ee-49af-83d1-3967f36410a7)
+![image](https://github.com/NaufalGhifari/minimalistTabTracker/assets/85378958/6aef68c6-37d2-4e04-9968-f5557839de5f)
 
 To help visualise the database structure, below are table creation queries:
 ```
