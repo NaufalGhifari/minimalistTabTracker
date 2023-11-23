@@ -48,4 +48,12 @@ CREATE TABLE IF NOT EXISTS usertabs (
     FOREIGN KEY (tabID) REFERENCES tabss(tab_id));
 ```
 
+## TO-DO:
+- [x] Create Node project
+- [x] Display tabs based on its status: unpaid, paid, & all
+- [ ] Add tab functionality
+- [ ] Update tab functionality
+- - [ ] Set tab to paid
+- [ ] Remove tab functionality
+
 Author: Muhammad Naufal Al Ghifari
