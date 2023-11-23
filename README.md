@@ -10,8 +10,8 @@ A small node project to keep track of tabs like in cafés, bistro, etc.
 ## 💡 To get the app running:
 1. Make sure you have [Node.js](https://nodejs.org/en/) installed
 2. Open a terminal in the cloned repo
-3. type 'npm init', this will install all dependncies
-4. Once done, type 'npm start'. This runs the application
+3. type ```npm install```, this will install all dependncies
+4. Once done, type ```npm start```. This runs the application
 5. Either click on the link in the terminal OR go to 'http://localhost:4000' on your browser
 6. You are now using minmalistTabTracker!
 
