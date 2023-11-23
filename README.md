@@ -49,11 +49,12 @@ CREATE TABLE IF NOT EXISTS usertabs (
 ```
 
 ## TO-DO:
-- [x] Create Node project
-- [x] Display tabs based on its status: unpaid, paid, & all
-- [ ] Add tab functionality
-- [ ] Update tab functionality
-- - [ ] Set tab to paid
-- [ ] Remove tab functionality
+- [x] Initialise Node project
+- [x] Functionality: display tabs based on its status: unpaid, paid, & all
+- [ ] Functionality: create new tab 
+- [ ] Functionality: update tab
+    - [ ] Functionality: Set tab to paid
+- [ ] Functionality: remove tab
+- [ ] Add CSS (to make it bearable to look at) (optional)
 
 Author: Muhammad Naufal Al Ghifari
