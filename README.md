@@ -50,6 +50,8 @@ CREATE TABLE IF NOT EXISTS usertabs (
 
 ## TO-DO:
 - [x] Initialise Node project
+- [x] Setup portable database
+- [x] Create tables: users, tabs, & usertabs
 - [x] Functionality: display tabs based on its status: unpaid, paid, & all
 - [ ] Functionality: create new tab 
 - [ ] Functionality: update tab
