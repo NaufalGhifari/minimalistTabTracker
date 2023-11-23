@@ -40,7 +40,7 @@ if(!fs.existsSync(dbFilePath)){
             tabID INTEGER,
             tabStatus BOOLEAN DEFAULT 0,
             FOREIGN KEY (userID) REFERENCES users(user_id),
-            FOREIGN KEY (tabID) REFERENCES tabss(tab_id)
+            FOREIGN KEY (tabID) REFERENCES tabs(tab_id)
         )`)
 
     });
@@ -64,10 +64,13 @@ if(!fs.existsSync(dbFilePath)){
         insert_tab.finalize();
 
         // usertabs data
-        const insert_usertabs = db.prepare('INSERT INTO usertabs (userID, tabID) VALUES (?, ?)');
-        insert_usertabs.run('1', '1');
-        insert_usertabs.run('1', '2');
-        insert_usertabs.run('3', '3');
+        const insert_usertabs = db.prepare('INSERT INTO usertabs (userID, tabID, tabStatus) VALUES (?, ?, ?)');
+        insert_usertabs.run('1', '1', 0);
+        insert_usertabs.run('1', '2', 0);
+        insert_usertabs.run('3', '3', 0);
+        insert_usertabs.run('2', '1', 1);
+        insert_usertabs.run('2', '2', 1);
+        insert_usertabs.run('4', '3', 1);
         insert_usertabs.finalize();
     });
 
