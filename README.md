@@ -28,6 +28,11 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 - To see database setup in detail, see [src/db/db_init.js](src/db/db_init.js)
 
 ### Tables
+Rules: 
+- One person may have multiple tabs
+- One tab may belong to multiple people
+
+We have a many-to-many relationship and this must be broken down into multiple one to many relationship to abide by the rules of relational database system by making use of a junction table:
 ![image](https://github.com/NaufalGhifari/minimalistTabTracker/assets/85378958/dfb70aba-1685-4f18-ba91-466c88a0b23b)
 
 To help visualise the database structure, below are table creation queries:
