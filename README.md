@@ -33,7 +33,7 @@ Rules:
 - One tab may belong to multiple people
 
 We have a many-to-many relationship and this must be broken down into multiple one to many relationship to abide by the rules of relational database system by making use of a junction table:
-![image](https://github.com/NaufalGhifari/minimalistTabTracker/assets/85378958/dfb70aba-1685-4f18-ba91-466c88a0b23b)
+![image](https://github.com/NaufalGhifari/minimalistTabTracker/assets/85378958/d4109f38-d1ee-49af-83d1-3967f36410a7)
 
 To help visualise the database structure, below are table creation queries:
 ```
