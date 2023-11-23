@@ -28,6 +28,8 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 - To see database setup in detail, see [src/db/db_init.js](src/db/db_init.js)
 
 ### Tables
+![image](https://github.com/NaufalGhifari/minimalistTabTracker/assets/85378958/dfb70aba-1685-4f18-ba91-466c88a0b23b)
+
 To help visualise the database structure, below are table creation queries:
 ```
 CREATE TABLE IF NOT EXISTS users (
