@@ -27,7 +27,7 @@ With [SQLite](https://www.sqlite.org/index.html), it is possible to setup a port
 - SQLite database location: src/db/mySQLiteDB.db
 - To see database setup in detail, see [src/db/db_init.js](src/db/db_init.js)
 
-### Tables
+### Structure
 Rules: 
 - One person may have multiple tabs
 - One tab may belong to multiple people
@@ -36,7 +36,7 @@ We have a many-to-many relationship and this must be broken down into multiple o
 
 ![image](https://github.com/NaufalGhifari/minimalistTabTracker/assets/85378958/6aef68c6-37d2-4e04-9968-f5557839de5f)
 
-To help visualise the database structure, below are table creation queries:
+To further help visualisation, below are table creation queries:
 ```
 CREATE TABLE IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY,
